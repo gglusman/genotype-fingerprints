@@ -16,7 +16,7 @@ Preprint: TBD
 
 4. To compare a fingerprint to a database:  
 	`bin/searchGFs.pl` _myFirstGenome.outn.gz myFingerprintCollection_  
-	...see the data directory for an example database (1000 Genomes)
+	...see the data directory for an example database (Corpas family)
 
 5. To compare two databases:  
 	`bin/searchGFs.pl` _aFingerprintCollection anotherFingerprintCollection_
