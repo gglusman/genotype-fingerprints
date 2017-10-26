@@ -15,7 +15,7 @@ Preprint: TBD
 	`bin/serializeGFs.pl` _myFingerprintCollection_ 1000 _*.outn.gz_
 
 4. To compare a fingerprint to a database:  
-	`bin/searchGFs.pl` _myFirstGenome.outn.gz myFingerprintCollection_  
+	`bin/searchGFs.pl` _myGenome.outn.gz myFingerprintCollection_  
 	...see the data directory for an example database (Corpas family)
 
 5. To compare two databases:  
@@ -24,3 +24,4 @@ Preprint: TBD
 6. To perform all-against-all comparisons in one database:  
 	`bin/searchGFs.pl` _aFingerprintCollection_
 
+This project is related to (but distinct from) the Genome Fingerprints: https://github.com/gglusman/genome-fingerprints/
