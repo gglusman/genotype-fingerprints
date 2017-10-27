@@ -4,7 +4,7 @@ my $version = '171019';
 ####
 #
 # This software collects genotype fingerprints into a database for efficient searching.
-# The method is described in Glusman et al., https://doi.org/10.1101/130807
+# The method is described in Glusman et al., https://doi.org/10.1101/208025
 # 
 # Copyright 2017 by Gustavo Glusman, Institute for Systems Biology, Seattle, WA, USA.
 # It is provided by the Institute for Systems Biology as open source software,
