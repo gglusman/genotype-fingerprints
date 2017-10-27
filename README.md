@@ -1,7 +1,7 @@
 # genotype-fingerprints
 Software for creating and comparing genotype fingerprints.  
 More information and datasets: http://db.systemsbiology.net/gestalt/genotype_fingerprints/  
-Preprint: TBD
+Preprint: https://doi.org/10.1101/208025
 
 1. To create a fingerprint for a genome:  
 	`bin/computeGF.pl` _myGenome path-to-my-genotypes/myGenome.gz_  
