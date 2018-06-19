@@ -15,11 +15,8 @@ my $version = '171019';
 #
 # The expected input format is 23andMe's genotype format: rsid chrom pos genotype.
 # The first parameter is an 'id' for the job; output files will use this as base. You can include in it a path to where you want the output files to be located.
-# The second parameter is the input file (the genome as VCF, RCF, var or masterVar).
-# The third (optional) parameter is the format of the input file: 'vcf', 'rcf', 'var' or 'masterVar'. Defaults to 'vcf'.
-# The fourth (optional) parameter is the fingerprint size. Multiple sizes can be specified, comma-delimited. Defaults to including several sizes.
-# The fifth (optional) parameter is the distance between consecutive SNVs that are considered 'too close'. Default is 20.
-# The sixth (optional) parameter is a bed file specifying regions of interest to be included in the analysis. For example, one could specify the definition of exome segments to compute an exome-compatible fingerprint from whole-genome data. This is available only for VCF and RCF input.
+# The second parameter is the input file (the genome as 23andMe format or equivalent).
+# The third (optional) parameter is the fingerprint size. Multiple sizes can be specified, comma-delimited. Defaults to including several sizes.
 #
 ####
 #
@@ -35,6 +32,7 @@ my @Ls = (500, 1000, 5000);
 $file ||= $id;
 
 # Sanitize inputs.
+die if $id =~ /[\s\;]/;
 die if $file =~ /[\s\;]/;
 
 # Preparation.
