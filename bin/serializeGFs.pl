@@ -1,6 +1,6 @@
 #!/bin/env perl
 use strict;
-my $version = '171019';
+my $version = '180824';
 ####
 #
 # This software collects genotype fingerprints into a database for efficient searching.
@@ -23,8 +23,8 @@ my $version = '171019';
 ####
 #
 # Example of usage:
-#   serializeGFs.pl gfDB 120 fingerprints/*.outn.gz
-#   serializeGFs.pl gfDB 120 @listOfFiles fingerprints/*.outn.gz
+#   serializeGFs.pl gfDB 5000 fingerprints/*.outn.gz
+#   serializeGFs.pl gfDB 5000 @listOfFiles fingerprints/*.outn.gz
 #     --> gfDB.fp
 #     --> gfDB.id
 #
@@ -66,6 +66,7 @@ foreach my $file (@files) {
 		open LST, $1;
 		while (<LST>) {
 			chomp;
+			($_) = split;
 			push @todo, $_ if !$done{$_} && -s $_;
 		}
 		close LST;

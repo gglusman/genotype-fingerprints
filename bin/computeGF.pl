@@ -1,6 +1,6 @@
 #!/bin/env perl
 use strict;
-my $version = '171019';
+my $version = '180824';
 ####
 #
 # This software computes a genotype fingerprint for a single personal genome.
@@ -26,6 +26,9 @@ my $version = '171019';
 #
 ####
 
+use FindBin qw($Bin);
+use lib $Bin;
+
 my($id, $file, $L) = @ARGV;
 my @Ls = (500, 1000, 5000);
 @Ls = split /,/, $L if $L;	
@@ -49,7 +52,7 @@ if ($file =~ /\.gz$/) {
 
 # Read 1000g frequencies.
 my %tgf;
-open TGF, "gunzip -c genotype-fingerprints/data/1000g.freq.gz |";
+open TGF, "gunzip -c $Bin/../data/1000g.freq.gz |";
 while (<TGF>) {
 	chomp;
 	my($rsid, %f) = split /\t/;
@@ -107,7 +110,8 @@ open OUTF, ">$id.$rawFileExt";
 print OUTF $header;
 foreach my $vl (@Ls) {
 	foreach my $key (@keys) {
-		print OUTF join("\t", $vl, $key, @{$count{$vl}{$key}}), "\n";
+		print OUTF join("\t", $vl, $key, map {sprintf("%.4f", $_)} @{$count{$vl}{$key}}), "\n";
+		#print OUTF join("\t", $vl, $key, @{$count{$vl}{$key}}), "\n";
 	}
 }
 close OUTF;

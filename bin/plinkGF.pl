@@ -93,13 +93,13 @@ foreach my $chrom (sort {$a<=>$b} keys %rsids) {
 				my $id = $ids[$i+1];
 				$id = join("-", $fam, $id) unless $fam eq $id;
 				my %c;
-				foreach my $i (0,1) { $c{substr($gt, $i, 1)}++ }
+				foreach (0,1) { $c{substr($gt, $_, 1)}++ }
 				foreach my $L (@Ls) {
 					my $bin = $nid % $L;
 					foreach my $al (keys %c) {
 						$count{$id}{$L}{$al}[$bin] += $c{$al};
 					}
-					foreach my $tgal (keys %{$tgf{$rsid}}) {
+					foreach my $tgal (keys %{$tgf{$rsid}}) { ### this could be computed once
 						$count{$id}{$L}{$tgal}[$bin] -= $tgf{$rsid}{$tgal};
 					}
 				}
